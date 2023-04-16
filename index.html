@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DirectToWhatsApp</title>
+    <link rel="icon" type="image/x-icon" href="./gree-chat.svg">
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: column;justify-content: center; align-items: center; height: 90vh;">
+        <div>
+            <img src = "./gree-chat.svg" alt="DirectToWALogo"/>
+        </div>
+        <input 
+            type="number" 
+            id="phoneNumber" 
+            style="margin-top: 5px; margin-bottom: 5px;" 
+            placeholder="Number with extension"
+            onkeydown="if (event.keyCode === 13) getSendUrl()">
+        <button onclick="getSendUrl()">Go to Whatsapp</button>
+    </div>
+
+    <script>
+      function getSendUrl() {
+        var sendUrl = "https://api.whatsapp.com/send/?phone="
+        var phoneNumber = document.getElementById("phoneNumber").value;
+        window.open(sendUrl+phoneNumber, '_blank');
+      }
+    </script>
+  </body>
+</html>
+

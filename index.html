@@ -3,19 +3,81 @@
   <head>
     <title>DirectToWhatsApp</title>
     <link rel="icon" type="image/x-icon" href="./gree-chat.svg">
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+      }
+      .logo-mobile{
+        display: none;
+      }
+      .input-phone {
+        font-size: 18px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 7px;
+        text-align: center;
+      }
+      .button-phone{
+        display: flex;
+        font-size: 18px;
+        text-align: center;
+        background: #25D366;
+        color: #075E54;
+        font-weight: bold;
+        border: 1px solid #075E54;
+        border-radius: 5px;
+        padding:10px;
+      }
+      .external-link-icon{
+        margin-left: 5px;
+      }
+      @media screen and (max-width: 980px){
+        .container {
+          height: 70vh;
+        }
+        .logo{
+          display: none;
+        }
+        .logo-mobile{
+          display: block;
+        }
+        .input-phone{
+          margin-top: 60px;
+          margin-bottom: 15px;
+          font-size: 65px;
+        }
+        .button-phone {
+          font-size: 65px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div style="display: flex; flex-direction: column;justify-content: center; align-items: center; height: 90vh;">
-        <div>
-            <img src = "./gree-chat.svg" alt="DirectToWALogo"/>
+    <div class="container">
+        <div class="logo">
+            <img src = "./gree-chat.svg" alt="Logo"/>
+        </div>
+        <div class="logo-mobile">
+            <img src = "./gree-chat-mobile.svg" alt="DirectToWALogo"/>
         </div>
         <input 
             type="number" 
             id="phoneNumber" 
-            style="margin-top: 5px; margin-bottom: 5px;" 
-            placeholder="Number with extension"
+            class="input-phone"
+            placeholder="Phone number"
             onkeydown="if (event.keyCode === 13) getSendUrl()">
-        <button onclick="getSendUrl()">Go to Whatsapp</button>
+        <button class="button-phone" onclick="getSendUrl()">
+          <span>
+            Go to Whatsapp
+          </span>
+          <img class="external-link-icon" src = "./external-link.svg" alt=""/>
+        </button>
     </div>
 
     <script>
